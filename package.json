@@ -8,6 +8,8 @@
   "scripts": {
     "validate": "node src/validateBatch.js data/lote.json",
     "test": "node --test test/*.test.js",
-    "audit": "node src/generateAudit.js"
+    "audit": "node src/generateAudit.js",
+    "gate": "node scripts/qualityGate.js dist/auditoria.json",
+    "ci": "npm run validate && npm test && npm run audit && npm run gate"
   }
 }
