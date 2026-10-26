@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     def audit = new groovy.json.JsonSlurperClassic().parseText(readFile(env.AUDIT_FILE))
-                    input message: "Laboratório: liberar lote ${audit.batchId}, total R$ ${audit.total}, commit ${audit.commit} para PRODUCAO simulada?", ok: 'LIBERAR LOTE'
+                    input message: "Laboratório: liberar lote ${audit.batchId}, total BRL ${audit.total}, commit ${audit.commit} para PRODUCAO simulada?", ok: 'LIBERAR LOTE'
                 }
             }
         }
