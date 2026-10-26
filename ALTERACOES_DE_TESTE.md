@@ -16,10 +16,19 @@ Build #5 bloqueado em 2. Validar lote. Console: pagamento 5: beneficiário
 duplicado: BEN-001. Total 6230.00. Testes e auditoria ignorados por falha anterior.
 Regra violada: beneficiário único por lote. Risco: pagamento em duplicidade.
 Evidência: print do Console enviado pelo operador antes da correção.
-Correção: restaurar BEN-005 no quinto pagamento. Recuperação no Jenkins pendente.
+Correção: restaurar BEN-005 no quinto pagamento, commit a21c1f0.
+Recuperação observada: Build #6 SUCCESS em HOMOLOGACAO; Console mostra
+arquivamento e fingerprints. Print recebido antes da próxima falha controlada.
 
 ## Falha D: orçamento excedido
-Pendente: reduzir budgetLimit para 5000, executar e registrar antes de corrigir.
+Commit 38c05a9: budgetLimit reduzido para 5000, mantendo os pagamentos em 6230.
+Build #7 bloqueado em 2. Validar lote. Console às 20:34:10:
+orçamento excedido: total 6230.00 > limite 5000.00.
+Testes e geração da auditoria foram ignorados por falha anterior.
+Regra violada: soma do lote menor ou igual ao orçamento autorizado.
+Impacto: liberação financeira acima do limite, mesmo com pagamentos individuais válidos.
+Evidência: print enviado pelo operador antes da correção.
+Correção: restaurar limite 20000. Recuperação no Jenkins pendente.
 
 ## Aprovação para produção
 Pendente: executar com DESTINO=PRODUCAO, revisar evidências e confirmar manualmente.

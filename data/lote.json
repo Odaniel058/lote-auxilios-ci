@@ -1,5 +1,5 @@
 {
-  "metadata": { "batchId": "AUX-2026-10", "competence": "2026-10", "budgetLimit": 5000, "status": "APROVADO_PARA_PROCESSAMENTO" },
+  "metadata": { "batchId": "AUX-2026-10", "competence": "2026-10", "budgetLimit": 20000, "status": "APROVADO_PARA_PROCESSAMENTO" },
   "payments": [
     { "beneficiaryId": "BEN-001", "name": "Ana Souza", "amount": 1200, "bank": "001", "agency": "1234", "account": "10001-0", "approved": true },
     { "beneficiaryId": "BEN-002", "name": "Bruno Lima", "amount": 1350, "bank": "104", "agency": "2233", "account": "20002-1", "approved": true },
