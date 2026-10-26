@@ -35,8 +35,11 @@ pipeline {
             when { expression { params.DESTINO == 'PRODUCAO' } }
             steps {
                 script {
-                    def audit = new groovy.json.JsonSlurperClassic().parseText(readFile(env.AUDIT_FILE))
-                    input message: "Laboratório: liberar lote ${audit.batchId}, total BRL ${audit.total}, commit ${audit.commit} para PRODUCAO simulada?", ok: 'LIBERAR LOTE'
+                    def summary = sh(
+                        script: '''node -e 'const a = require("./dist/auditoria.json"); console.log("Lote " + a.batchId + "; total BRL " + a.total.toFixed(2) + "; commit " + a.commit + "; SHA-256 " + a.inputSha256)' ''',
+                        returnStdout: true
+                    ).trim()
+                    input message: "Laboratório: liberar para PRODUCAO simulada? ${summary}", ok: 'LIBERAR LOTE'
                 }
             }
         }
