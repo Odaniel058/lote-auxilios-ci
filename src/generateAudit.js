@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const crypto = require('node:crypto');
+const { execFileSync } = require('node:child_process');
 const { validateBatch } = require('./validateBatch');
 const raw = fs.readFileSync('data/lote.json');
 const batch = JSON.parse(raw.toString('utf8'));
@@ -17,7 +18,7 @@ const audit = {
   errors: validation.errors,
   warnings: validation.warnings,
   inputSha256: crypto.createHash('sha256').update(raw).digest('hex'),
-  commit: process.env.GIT_COMMIT || 'local',
+  commit: process.env.GIT_COMMIT || execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
   buildNumber: process.env.BUILD_NUMBER || 'local',
   generatedAt: new Date().toISOString()
 };
