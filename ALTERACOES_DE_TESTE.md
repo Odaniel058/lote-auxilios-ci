@@ -28,7 +28,13 @@ Testes e geração da auditoria foram ignorados por falha anterior.
 Regra violada: soma do lote menor ou igual ao orçamento autorizado.
 Impacto: liberação financeira acima do limite, mesmo com pagamentos individuais válidos.
 Evidência: print enviado pelo operador antes da correção.
-Correção: restaurar limite 20000. Recuperação no Jenkins pendente.
+Correção: restaurar limite 20000, commit 7b3725d.
+Recuperação observada: Build #8 SUCCESS em HOMOLOGACAO às 20:35:07,
+com arquivamento e fingerprints, conforme print enviado pelo operador.
 
 ## Aprovação para produção
-Pendente: executar com DESTINO=PRODUCAO, revisar evidências e confirmar manualmente.
+Solicitação de liberação: lote AUX-2026-10, cinco pagamentos fictícios,
+total R$ 6.230,00 dentro do limite de R$ 20.000,00. Ambas as falhas controladas
+foram bloqueadas e corrigidas; recuperação final em homologação observada no #8.
+Próxima etapa: executar com DESTINO=PRODUCAO, revisar auditoria, commit e hash,
+e confirmar manualmente. Aprovação e publicação ainda pendentes de evidência.
