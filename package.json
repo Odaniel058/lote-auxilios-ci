@@ -6,6 +6,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "validate": "node src/validateBatch.js data/lote.json"
+    "validate": "node src/validateBatch.js data/lote.json",
+    "test": "node --test test/*.test.js"
   }
 }
